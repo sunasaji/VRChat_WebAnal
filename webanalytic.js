@@ -9,7 +9,7 @@
 // @match        https://vrchat.net/*
 // ==/UserScript==
 // ==OpenUserJS==
-// @author Loli E1ON
+// @author Loli_E1ON
 // @collaborator Loli E1ON
 // ==/OpenUserJS==
 
