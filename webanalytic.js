@@ -6,6 +6,7 @@
 // @author       Loli e1on
 // @match        https://vrchat.net/*
 // @grant        https://vrchat.net/*
+// @require      https://code.jquery.com/jquery-2.2.4.min.js
 // ==/UserScript==
 
 function getCookie(name) {
