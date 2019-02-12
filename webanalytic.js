@@ -1,11 +1,14 @@
 // ==UserScript==
 // @name         VRChat Web Analytic
 // @namespace    e1on
-// @version      1.2
-// @description  Adds viewer to world members
-// @author       Loli e1on
+// @version      1.23
+// @description  Adds the ability to view members of the worlds as well as sending messages to friends.
+// @author       e1on
 // @match        https://vrchat.net/*
 // @grant        https://vrchat.net/*
+// @include      /.*?:\/\/.*?vrchat.*?\..*?(home|world|launch|api).*?/
+// @include      *://www.vrchat.net
+// @include      *://www.vrchat.com
 // @require      https://code.jquery.com/jquery-3.3.1.min.js
 // ==/UserScript==
 
