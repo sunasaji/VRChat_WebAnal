@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         VRChat Web Analytic
 // @namespace    e1on
-// @version      1.14
+// @version      1.2
 // @description  Adds viewer to world members
 // @author       Loli e1on
 // @match        https://vrchat.net/*
