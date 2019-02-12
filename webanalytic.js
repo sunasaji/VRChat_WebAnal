@@ -1,12 +1,12 @@
 // ==UserScript==
-// @name         VRChat Web Anal
+// @name         VRChat Web Analytic
 // @namespace    e1on
-// @version      1
+// @version      1.14
 // @description  Adds viewer to world members
 // @author       Loli e1on
 // @match        https://vrchat.net/*
 // @grant        https://vrchat.net/*
-// @require      https://code.jquery.com/jquery-2.2.4.min.js
+// @require      https://code.jquery.com/jquery-3.3.1.min.js
 // ==/UserScript==
 
 function getCookie(name) {
@@ -21,7 +21,6 @@ var xhr = new XMLHttpRequest();
 
 if (cookieAuth != 'undefined') {
 
-	// дохуя кода котороый я дето спиздил
 	history.pushState = ( f => function pushState(){
 	var ret = f.apply(this, arguments);
 	window.dispatchEvent(new Event('pushState'));
@@ -58,6 +57,27 @@ if (cookieAuth != 'undefined') {
 
 			}
 		}
+
+
+        // sleep time expects milliseconds
+        function sleep (time) {
+            return new Promise((resolve) => setTimeout(resolve, time));
+        }
+
+        // Usage!
+        sleep(2000).then(() => {
+            // send message
+            if ((typeof path[2] !== "undefined") && (path[2] == 'user')) {
+                if ((typeof path[3] !== "undefined")) {
+
+                    var userId = path[3];
+                    renderMessageForm(userId);
+
+                }
+            }
+        });
+
+
 
 	});
 
@@ -108,3 +128,27 @@ try {
 }
 });
 }
+
+function renderMessageForm (userId) {
+$(document).ready(function() {
+
+
+    var el = $('h3[class="subheader"]');
+    console.log(el);
+
+    if (el.length){
+        el.after('<input type="text" style="display: inline-block;width: 80%;" id="message" class="form-control" placeholder="Send message" value=""><button id="sendMessage" type="button" class="btn btn-primary">Send</button>');
+    }
+
+});
+}
+
+    $(document).on("click", "#sendMessage", function () {
+        console.log("click");
+        $.ajax({
+            url: 'https://vrchat.net/api/1/user/'+ location.pathname.split('/')[3] +'/notification',
+            type: 'POST',
+            data:{ type: 1, message: $("#message").val()},
+            success: alert("[OK] Message sent successfully!")
+        });
+    });
