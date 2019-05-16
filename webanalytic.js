@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         VRChat Web Analytic
 // @namespace    e1on
-// @version      1.23
+// @version      1.25
 // @description  Adds the ability to view members of the worlds as well as sending messages to friends.
 // @author       e1on
 // @match        https://vrchat.net/*
@@ -149,7 +149,7 @@ $(document).ready(function() {
     $(document).on("click", "#sendMessage", function () {
         console.log("click");
         $.ajax({
-            url: 'https://vrchat.net/api/1/user/'+ location.pathname.split('/')[3] +'/notification',
+            url: 'https://vrchat.net/api/1/user/'+ location.pathname.split('/')[3] +'/message',
             type: 'POST',
             data:{ type: 1, message: $("#message").val()},
             success: alert("[OK] Message sent successfully!")
